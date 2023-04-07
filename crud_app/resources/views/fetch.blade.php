@@ -24,7 +24,6 @@
                 </tr>
               </thead>
 
-             
 
               <tbody>
                 @foreach ($crud as $index => $crud)
@@ -50,11 +49,11 @@
                         {{ $crud->address }}
                     </td>
                     <td>&nbsp;&nbsp;
-                        <a href="#">
+                        <a href="{{ url('/edit-data/'.$crud->id )}}">
                             <button class="btn btn-primary btn-xs">Edit Data</button>
                         </a>
                         &nbsp;&nbsp;
-                        <a href="#">
+                        <a href="{{ url('/delete-data/'.$crud->id )}}">
                             <button class="btn btn-danger btn-xs" onClick="return confirm('Do you really want to delete');">Delete Data</button>
                         </a>
                     </td>

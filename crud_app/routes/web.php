@@ -26,13 +26,15 @@ use Illuminate\Support\Facades\Route;
 //     return view('fetch');
 // });
 
-Route::get('/',[CrudController::class,'main']);
-Route::get('/index',[CrudController::class,'index']);
-Route::get('/fetch',[CrudController::class,'fetch']);
+//Route::get('/',[CrudController::class,'main']);
+//Route::get('/index',[CrudController::class,'index']);
+Route::get('/',[CrudController::class,'fetch']);
 Route::get('/data',[CrudController::class,'showData']);
 Route::get('/test',[CrudController::class,'mTest']);
 Route::get('/form',[CrudController::class,'displayForm'])->name("form.create");
 Route::post('/save',[CrudController::class,'saveForm'])->name("form.save");
-
+Route::get('/edit-data/{id}',[CrudController::class,'editData']);
+Route::post('/update-data/{id}',[CrudController::class,'updateData']);
+Route::get('/delete-data/{id}',[CrudController::class,'deleteData']);
 
 
