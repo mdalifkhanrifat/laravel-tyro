@@ -38,3 +38,5 @@ Route::post('/update-data/{id}',[CrudController::class,'updateData']);
 Route::get('/delete-data/{id}',[CrudController::class,'deleteData']);
 
 
+
+

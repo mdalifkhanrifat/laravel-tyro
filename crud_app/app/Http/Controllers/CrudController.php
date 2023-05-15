@@ -21,10 +21,10 @@ class CrudController extends Controller
 
     function fetch()
     {
-        $data=[];
+        $data = [];
         //$data['cruds']= DB::table('cruds')->get();
         $data['crud'] = Crud::all();
-        return view('fetch',$data);
+        return view('fetch', $data);
     }
 
     function showData()
@@ -70,7 +70,7 @@ class CrudController extends Controller
         return redirect('/');
     }
 
-    function editData($id=null)
+    function editData($id = null)
     {
         //  $editData = Crud::find($id);
 
@@ -78,13 +78,13 @@ class CrudController extends Controller
         // return view('edit'.$editData);
 
 
-        $editData=[];
+        $editData = [];
         //$data['cruds']= DB::table('cruds')->get();
         $editData['crud'] = Crud::find($id);
-        return view('edit',$editData);
+        return view('edit', $editData);
     }
 
-    function updateData(Request $request,$id)
+    function updateData(Request $request, $id)
     {
         $name = $request->post('name');
         $email = $request->post('email');
@@ -94,14 +94,14 @@ class CrudController extends Controller
         $address = $request->post('address');
 
 
-            $crud = Crud::find($id);
-            $crud->name = $name;
-            $crud->email = $email;
-            $crud->contact_no = $contact_no;
-            $crud->gender = $gender;
-            $crud->qualification = $qualification;
-            $crud->address = $address;
-            $crud->save();
+        $crud = Crud::find($id);
+        $crud->name = $name;
+        $crud->email = $email;
+        $crud->contact_no = $contact_no;
+        $crud->gender = $gender;
+        $crud->qualification = $qualification;
+        $crud->address = $address;
+        $crud->save();
 
 
         // Crud::firstOrCreate(['name' => $name],['email' => $email],['contact_no' => $contact_no],['gender' => $gender],['qualification' => $qualification],['address' => $address]);
@@ -110,14 +110,11 @@ class CrudController extends Controller
     }
 
 
-    function deleteData($id=null)
+    function deleteData($id = null)
     {
 
-         $deleteData = Crud::find($id);
-         $deleteData->delete();
-         return redirect('/');
-
+        $deleteData = Crud::find($id);
+        $deleteData->delete();
+        return redirect('/');
     }
-
-
 }
